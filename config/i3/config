@@ -11,6 +11,9 @@ set $mod Mod1
 # ██║░░██║╚██████╔╝░░░██║░░░╚█████╔╝██████╔╝░░░██║░░░██║░░██║██║░░██║░░░██║░░░
 # ╚═╝░░╚═╝░╚═════╝░░░░╚═╝░░░░╚════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░
 
+# monitor configuration
+exec --no-startup-id xrandr --auto --output DVI-I-1-1 --mode 1920x1080 --right-of eDP-1
+
 # Start the compositor (Picom) with the wm
 exec --no-startup-id picom
 
@@ -19,15 +22,13 @@ exec --no-startup-id steamm -silent
 
 # Start discord minimized
 exec --no-startup-id discord --start-minimized
+
 # Restore the nitrogen sesion
 exec --no-startup-id nitrogen --restore
 
 #Polybar
 exec --no-startup-id polybar main
 exec --no-startup-id polybar secondary
-
-# monitor configuration
-exec --no-startup-id xrandr --auto --output DVI-I-1-1 --mode 1920x1080 --right-of HDMI-1
 
 # launch a polikit to authenticate in gui apps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
