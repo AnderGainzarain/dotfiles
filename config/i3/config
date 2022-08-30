@@ -33,6 +33,9 @@ exec --no-startup-id polybar secondary
 # launch a polikit to authenticate in gui apps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+# launch pulseaudio in the system tray
+exec --no-startup-id pasystray
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -55,9 +58,24 @@ exec --no-startup-id nm-applet
 # ╚█████╔╝╚█████╔╝██║░╚███║██║░░░░░██║╚██████╔╝
 # ░╚════╝░░╚════╝░╚═╝░░╚══╝╚═╝░░░░░╚═╝░╚═════╝░
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:monospace 8
+
+# color defines for zenburn styled i3
+set $bg     #2c2c2e
+set $fg     #9f9f9f
+set $hi     #efef8f
+set $ac     #a0afa0
+set $tx     #040404
+set $ia     #8f8f8f
+set $be     #8faf9f
+set $yw     #ccdc90
+set $gn     #88b090
+set $rd     #e89393
+
+# set some nice colors      border     background  text
+client.focused              $ac        $ac         $tx
+client.unfocused            $bg        $bg         $ia
+client.focused_inactive     $bg        $bg         $ac
+client.urgent               $rd        $rd         $tx
 
 # configure border style
 default_border pixel 1
@@ -88,25 +106,28 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # Start the power menu
-bindsym $mod+p exec bash ~/.scripts/rofi/powermenu.sh
+bindsym $mod+p exec --no-startup-id bash ~/.scripts/rofi/powermenu.sh
 
 # Print screen with flameshot
-bindsym Print exec flameshot gui
+bindsym Print exec --no-startup-id flameshot gui
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+space exec --no-startup-id rofi -show drun
+bindsym $mod+space exec --no-startup-id rofi -show drun 
 
 # start thunar
-bindsym $mod+e exec thunar
+bindsym $mod+e exec --no-startup-id pcmanfm
 
 # start rofi as a calculator
-bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
+bindsym $mod+c exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort
+
+# Rofi favourite apps
+bindsym $mod+Sift+space --no-startup-id rofi -modi "My Favorite Apps":"~/.scripts/rofi/rofi-favorites.sh" -show "My Favorite Apps"
 
 # change focus
 bindsym $mod+Left focus left
