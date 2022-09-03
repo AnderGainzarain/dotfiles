@@ -11,14 +11,8 @@ set $mod Mod1
 # ██║░░██║╚██████╔╝░░░██║░░░╚█████╔╝██████╔╝░░░██║░░░██║░░██║██║░░██║░░░██║░░░
 # ╚═╝░░╚═╝░╚═════╝░░░░╚═╝░░░░╚════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░
 
-# monitor configuration
-exec --no-startup-id xrandr --auto --output DVI-I-1-1 --mode 1920x1080 --right-of eDP-1
-
 # Start the compositor (Picom) with the wm
-exec --no-startup-id picom
-
-# Start steam minimized
-exec --no-startup-id steamm -silent
+exec --no-startup-id picom 
 
 # Start discord minimized
 exec --no-startup-id discord --start-minimized
@@ -33,23 +27,18 @@ exec --no-startup-id polybar secondary
 # launch a polikit to authenticate in gui apps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# launch pulseaudio in the system tray
-exec --no-startup-id pasystray
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
+# Start the network manager applet
 exec --no-startup-id nm-applet
+
+# start the pulseaudio system tray applet
+exec --no-startup-id pasystray
+
+# start the clipboard manager
+exec --no-startup-id clipit
 
 # ░█████╗░░█████╗░███╗░░██╗███████╗██╗░██████╗░
 # ██╔══██╗██╔══██╗████╗░██║██╔════╝██║██╔════╝░
@@ -58,24 +47,25 @@ exec --no-startup-id nm-applet
 # ╚█████╔╝╚█████╔╝██║░╚███║██║░░░░░██║╚██████╔╝
 # ░╚════╝░░╚════╝░╚═╝░░╚══╝╚═╝░░░░░╚═╝░╚═════╝░
 
+# color defines for palenight styled i3
+set_from_resource $darkred     color1  #000000
+set_from_resource $red         color9  #000000
+set_from_resource $darkgreen   color2  #000000
+set_from_resource $green       color10 #000000
+set_from_resource $darkyellow  color3  #000000
+set_from_resource $yellow      color11 #000000
+set_from_resource $darkblue    color4  #000000
+set_from_resource $blue        color12 #000000
+set_from_resource $darkmagenta color5  #000000
+set_from_resource $magenta     color13 #000000
+set_from_resource $darkcyan    color6  #000000
+set_from_resource $cyan        color14 #000000
+set_from_resource $darkwhite   color7  #000000
+set_from_resource $white       color15 #000000
 
-# color defines for zenburn styled i3
-set $bg     #2c2c2e
-set $fg     #9f9f9f
-set $hi     #efef8f
-set $ac     #a0afa0
-set $tx     #040404
-set $ia     #8f8f8f
-set $be     #8faf9f
-set $yw     #ccdc90
-set $gn     #88b090
-set $rd     #e89393
-
-# set some nice colors      border     background  text
-client.focused              $ac        $ac         $tx
-client.unfocused            $bg        $bg         $ia
-client.focused_inactive     $bg        $bg         $ac
-client.urgent               $rd        $rd         $tx
+# Set the gaps
+gaps inner 4
+gaps outer 4 
 
 # configure border style
 default_border pixel 1
@@ -84,9 +74,15 @@ default_floating_border normal
 # get rid of tittle bar
 for_window [class="^.*"] border pixel 2
 
-# Set the gaps
-gaps inner 4
-gaps outer 4 
+# Theme colors
+# class                 border  backgr. text    indic.  child_border
+client.focused          $darkCyan $darkCyan $white #FDF6E3
+client.focused_inactive #434745 #434745 #16A085 #454948
+client.unfocused        #434745 #434745 #16A085 #454948
+client.urgent           #CB4B16 #FDF6E3 #16A085 #268BD2
+client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
+
+client.background       #2B2C2B
  
 # ██╗░░██╗███████╗██╗░░░██╗  ██████╗░██╗███╗░░██╗██████╗░██╗███╗░░██╗░██████╗░░██████╗
 # ██║░██╔╝██╔════╝╚██╗░██╔╝  ██╔══██╗██║████╗░██║██╔══██╗██║████╗░██║██╔════╝░██╔════╝
@@ -108,9 +104,6 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
 
-# Start the power menu
-bindsym $mod+p exec --no-startup-id bash ~/.scripts/rofi/powermenu.sh
-
 # Print screen with flameshot
 bindsym Print exec --no-startup-id flameshot gui
 
@@ -118,16 +111,18 @@ bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+space exec --no-startup-id rofi -show drun 
+bindsym $mod+space exec --no-startup-id rofi -show drun
 
 # start thunar
-bindsym $mod+e exec --no-startup-id pcmanfm
+bindsym $mod+e exec --no-startup-id thunar
 
 # start rofi as a calculator
 bindsym $mod+c exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort
 
-# Rofi favourite apps
-bindsym $mod+Sift+space --no-startup-id rofi -modi "My Favorite Apps":"~/.scripts/rofi/rofi-favorites.sh" -show "My Favorite Apps"
+# start brave
+bindsym $mod+w exec --no-startup-id brave
+
+bindsym $mod+Tab exec --no-startup-id rofi -show window 
 
 # change focus
 bindsym $mod+Left focus left
@@ -151,15 +146,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-#bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+d focus mode_toggle
+bindsym $mod+p layout stacking
+bindsym $mod+o layout tabbed
+bindsym $mod+Shift+o layout toggle split
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -199,11 +188,11 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+c restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
