@@ -122,7 +122,11 @@ bindsym $mod+c exec --no-startup-id rofi -show calc -modi calc -no-show-match -n
 # start brave
 bindsym $mod+w exec --no-startup-id brave
 
+# Show a list of oppen apps
 bindsym $mod+Tab exec --no-startup-id rofi -show window 
+
+# Launch the power menu
+bindsym $mod+p exec $HOME/.config/rofi/powermenu/powermenu.sh
 
 # change focus
 bindsym $mod+Left focus left
@@ -146,7 +150,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+p layout stacking
+bindsym $mod+l layout stacking
 bindsym $mod+o layout tabbed
 bindsym $mod+Shift+o layout toggle split
 
