@@ -12,3 +12,4 @@ mv Dependencies/Scripts/* ~/.Scripts
 
 # move the rofi theme
 mv Dependencies/material.rasi /usr/share/rofi/themes
+mv Dependencies/onedark.rasi /usr/share/rofi/themes
