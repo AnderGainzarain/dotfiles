@@ -1,6 +1,5 @@
 # i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+## Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
 
@@ -30,9 +29,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-
-# Start the network manager applet
-exec --no-startup-id nm-applet
 
 # start the pulseaudio system tray applet
 exec --no-startup-id pasystray
@@ -115,9 +111,6 @@ bindsym $mod+space exec --no-startup-id rofi -show drun
 
 # start thunar
 bindsym $mod+e exec --no-startup-id thunar
-
-# start rofi as a calculator
-bindsym $mod+c exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort
 
 # start brave
 bindsym $mod+w exec --no-startup-id brave
