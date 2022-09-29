@@ -17,3 +17,7 @@ In these istructions is the path where I usually put all the files in this repos
 
     sudo mv nanorc /etc/nanorc
     mv * ~/.config
+
+## Make the powermenu functional
+
+    chmod +x .confit/rofi/powermenu/powermenu.sh
