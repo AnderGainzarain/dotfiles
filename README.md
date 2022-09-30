@@ -26,7 +26,7 @@ In these istructions is the path where I usually put all the files in this repos
 
 ## Install the corresponding zsh extensions
 
-    mkdir -P .programs/zsh
+    mkdir -p .programs/zsh
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.programs/zsh/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.programs/zsh/zsh-syntax-highlighting
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.programs/zsh/powerlevel10k
