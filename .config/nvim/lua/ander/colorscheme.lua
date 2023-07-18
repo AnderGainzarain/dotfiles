@@ -8,3 +8,6 @@ if not status_ok then
   return
 end
 
+-- Set background transparency
+vim.api.nvim_set_hl(0, "Normal", { bg = 'none' })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = 'none'})

@@ -49,6 +49,9 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons" -- enables nvim to use custom icons
   use "kyazdani42/nvim-tree.lua" -- Project navigation plugin
 
+  -- Telescope fuzzy finder
+  use 'nvim-telescope/telescope.nvim'
+  
   -- Buferline
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
