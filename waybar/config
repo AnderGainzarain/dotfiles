@@ -1,0 +1,28 @@
+{
+	"layer": "top",
+	"position": "top",
+
+  "include": ["~/.config/waybar/modules.json"],
+
+	"modules-left": [
+    "custom/appmenuicon",
+    "hyprland/window"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+    "group/hardware",
+    "pulseaudio",
+    "custom/notification",
+		"clock",
+	],
+  "group/hardware" : {
+    "orientation": "horizontal",
+    "modules": [
+      "disk",
+      "cpu",
+      "memory"
+    ]
+  }
+}
