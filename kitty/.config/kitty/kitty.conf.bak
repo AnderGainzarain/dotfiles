@@ -1,0 +1,40 @@
+# Font management:
+font_family      Inconsolata nerd font mono
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size 25.0
+
+# BEGIN_KITTY_THEME
+# Cherry Midnight
+include current-theme.conf
+# END_KITTY_THEME
+
+# Mouse configuration:
+mouse_hide_wait 3.0
+
+# Set a background image (replace with the path to your image)
+background_image /home/ander/Pictures/Wallpapers/22.jpg
+
+# add a tint so the text is easyer to se with the background image
+background_tint 0.9
+background_tint_gaps -10
+
+# Background image options
+background_image_layout cscaled 
+
+# Set the collors to work with ssh
+allow_remote_control no
+term xterm-256color
+
+# Set window margins for split terminal view
+window_margin_width 5
+single_window_margin_width 0
+
+# Enable some layouts
+enabled_layouts Tall, *
+
+# Customize the tabs
+tab_bar_style powerline
+tab_powerline_style slanted
+
