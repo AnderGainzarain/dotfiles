@@ -39,7 +39,7 @@
   // Rofi power menu 
   "custom/powermenu": {
     "format": "",
-    "on-click": "/home/ander/.config/rofi/powermenu.sh",
+    "on-click": "/home/ander/.config/wofi/wofi-power-menu",
     "tooltip-format": "Open the application launcher"
   },
 
