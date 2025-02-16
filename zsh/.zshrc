@@ -42,6 +42,7 @@ alias av="ansible-vault"
 alias tfa="terraform apply"
 alias tfd="terraform destroy"
 alias kssh="ssh -i ~/.ssh/id_rsa_katoid"
+alias kscp="ssh -i ~/.ssh/id_rsa_katoid"
 
 # Hotkeys
 bindkey "^[[1;5C" forward-word # Enable control + right to forward word
