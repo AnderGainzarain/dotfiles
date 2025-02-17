@@ -80,14 +80,14 @@ return packer.startup(function(use)
     "neovim/nvim-lspconfig",
   }
   -- Treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end,
-  }
-  use "p00f/nvim-ts-rainbow" -- extra highlight for Treesitter
+  -- use {
+  --   'nvim-treesitter/nvim-treesitter',
+  --   run = function()
+  --     local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+  --     ts_update()
+  --   end,
+  -- }
+  -- use "p00f/nvim-ts-rainbow" -- extra highlight for Treesitter
   
   -- Indent Rainbow
   use "lukas-reineke/indent-blankline.nvim"
