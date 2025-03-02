@@ -36,7 +36,7 @@ alias puninstall="sudo pacman -Rns"
 
 # Work related aliases
 alias vpn="sudo openvpn --config ~/Documents/againzarain.ovpn"
-alias work="cd /run/media/ander/Work"
+alias work="cd /run/media/ander/work"
 alias ap="ansible-playbook"
 alias av="ansible-vault"
 alias tfa="terraform apply"
