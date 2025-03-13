@@ -1,7 +1,4 @@
-#run neofetch
-#neofetch
-
-#history fix
+#history configuration 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
@@ -35,14 +32,8 @@ alias pinstall="sudo pacman -S"
 alias puninstall="sudo pacman -Rns"
 
 # Work related aliases
-alias vpn="sudo openvpn --config ~/Documents/againzarain.ovpn"
 alias work="cd /run/media/ander/work"
-alias ap="ansible-playbook"
-alias av="ansible-vault"
-alias tfa="terraform apply"
-alias tfd="terraform destroy"
 alias kssh="ssh -i ~/.ssh/id_rsa_katoid"
-alias kscp="ssh -i ~/.ssh/id_rsa_katoid"
 
 # Hotkeys
 bindkey "^[[1;5C" forward-word # Enable control + right to forward word
@@ -54,9 +45,6 @@ bindkey '^[[3;5~' kill-word # Enable the control + del key
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$PATH:/home/ander/.spicetify
 
-# Set the default aws profile
-export AWS_PROFILE="abaAdmin"
-export KTD_DEV_OPS="/run/media/ander/Work/git-repos/devops"
 export TERM=xterm-256color
 export EDITOR=nvim
 
