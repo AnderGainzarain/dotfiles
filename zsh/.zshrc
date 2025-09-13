@@ -15,11 +15,16 @@ source ~/.programs/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Theme
 source ~/.programs/zsh/powerlevel10k/powerlevel10k.zsh-theme
 
+# Script related variables
+export HAS_BACKUP_DRIVE=true
+export NAS_MOUNT_POINT="/home/ander/nas"
+
 # Global Aliases
 alias ll="exa -lh"
 alias la="exa -lah"
-alias nas="sudo mount -t nfs 192.168.1.2:/nas/NAS ~/nas"
-alias syncCuentas="bash ~/.scripts/syncCuentas.sh"
+alias nas="sudo mount -t nfs 192.168.1.2:/mnt/pi_nas/NAS $NAS_MOUNT_POINT"
+alias pushCuentas="bash ~/.scripts/syncCuentas.sh --push"
+alias pullCuentas="bash ~/.scripts/syncCuentas.sh --pull"
 alias sudoedit="sudo -E -s nvim"
 alias history="less ~/.zsh_history"
 alias code="vscodium"
